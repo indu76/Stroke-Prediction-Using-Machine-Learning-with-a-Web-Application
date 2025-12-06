@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><title>About</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"></head><body>
+<header class="app-topbar"><div class="container d-flex justify-content-between"><div class="app-brand">Stroke Prediction</div><a href="/" class="btn btn-outline-light btn-sm">Home</a></div></header>
+<main class="container mt-5 mb-5"><div class="form-card">
+<h3 class="section-title">About This Model</h3>
+<p>This demo web app uses a machine learning model trained offline to estimate stroke risk from a few patient features. It is for educational purposes only and not a clinical tool.</p>
+<ul>
+<li>Model and preprocessing objects are loaded from <code>preprocessing_objects.pkl</code>.</li>
+<li>Make sure the model file (e.g., <code>best_model_xgboost.pkl</code>) is placed next to <code>app.py</code>.</li>
+</ul>
+</div></main><footer class="text-center mt-5 mb-3 muted small">Model Demo — For educational use only</footer></body></html>

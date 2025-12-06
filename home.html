@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Stroke Prediction</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9b3b9f2.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="home-bg">
+
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="container d-flex justify-content-between align-items-center">
+      <h1 class="brand"><i class="fa-solid fa-brain me-2"></i>StrokePredict</h1>
+      <a href="/about" class="btn btn-outline-light btn-sm"><i class="fa-solid fa-circle-info me-1"></i> About</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero text-center text-white">
+    <div class="container">
+      <h2 class="hero-title">Stroke Risk Assessment</h2>
+      <p class="hero-subtitle">Predict the likelihood of stroke using your health information powered by machine learning</p>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <main class="container my-5">
+    <div class="card form-card shadow-lg">
+      <h3 class="section-title text-center mb-4">Enter Patient Information</h3>
+
+      <form method="POST" action="{{ url_for('predict') }}">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <label class="form-label">Gender</label>
+            <select class="form-select" name="gender" required>
+              <option value="">Select</option>
+              <option>Male</option><option>Female</option><option>Other</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Age</label>
+            <input type="number" name="age" class="form-control" placeholder="e.g. 45" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Hypertension</label>
+            <select class="form-select" name="hypertension" required>
+              <option value="">Select</option>
+              <option value="0">No</option><option value="1">Yes</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Heart Disease</label>
+            <select class="form-select" name="heart_disease" required>
+              <option value="">Select</option>
+              <option value="0">No</option><option value="1">Yes</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Ever Married</label>
+            <select class="form-select" name="ever_married" required>
+              <option value="">Select</option>
+              <option>No</option><option>Yes</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Work Type</label>
+            <select class="form-select" name="work_type" required>
+              <option value="">Select</option>
+              <option>Private</option><option>Self-employed</option><option>Govt_job</option>
+              <option>Children</option><option>Never_worked</option>
+            </select>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">Residence Type</label>
+            <select class="form-select" name="Residence_type" required>
+              <option>Urban</option><option>Rural</option>
+            </select>
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Average Glucose Level</label>
+            <input type="number" step="0.01" name="avg_glucose_level" class="form-control" placeholder="e.g. 120.5" required>
+          </div>
+
+          <div class="col-md-6">
+            <label class="form-label">BMI</label>
+            <input type="number" step="0.1" name="bmi" class="form-control" placeholder="e.g. 25.4">
+          </div>
+          <div class="col-md-6">
+            <label class="form-label">Smoking Status</label>
+            <select class="form-select" name="smoking_status" required>
+              <option value="">Select</option>
+              <option value="formerly smoked">Formerly Smoked</option>
+              <option value="never smoked">Never Smoked</option>
+              <option value="smokes">Smokes</option>
+              <option value="Unknown">Unknown</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="text-center mt-5">
+          <button type="submit" class="btn btn-gradient"><i class="fa-solid fa-heart-pulse me-2"></i> Predict Risk</button>
+          <button type="reset" class="btn btn-outline-secondary ms-3">Reset</button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer class="text-center mt-5 py-4 text-muted">
+    <small><i class="fa-solid fa-shield-halved me-1"></i>For educational purposes only — not for medical use</small>
+  </footer>
+</body>
+</html>
